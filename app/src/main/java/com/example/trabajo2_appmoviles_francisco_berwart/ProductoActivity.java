@@ -52,17 +52,19 @@ public class ProductoActivity extends AppCompatActivity {
             validaciones.validComponent(edIDProd);
             validaciones.validComponent(edNomProd);
             if (validaciones.validComponent(edIDProd) && validaciones.validComponent(edNomProd)) {
-                cleanComponents();
-                Toast.makeText(this, "Se agregara un Producto!", Toast.LENGTH_LONG).show();
+                // Toast.makeText(this, "Se agregara un Producto!", Toast.LENGTH_LONG).show();
                 // Convierto a Strings los valores de los editText.
                 idProd = edIDProd.getText().toString();
                 nombreProd = edNomProd.getText().toString();
+                //Toast.makeText(this, "id: " + idProd + " nombre: " + nombreProd, Toast.LENGTH_LONG).show();
                 tipoProducto = "tipo 1";
                 estadoProducto = "Disponible";
                 productos.add(new Producto(idProd, nombreProd, tipoProducto, estadoProducto));
                 // Enviar los datos => Listado de productos al LOG.
                 // Quizas crear un bucle for para mostar los items del arraylist productos.
                 Log.d("TAG_", "Productos: " + productos.toString());
+                Toast.makeText(this, "Listado Productos: " + productos.toString(), Toast.LENGTH_LONG).show();
+                cleanComponents();
             }
 
 

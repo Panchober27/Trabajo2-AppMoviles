@@ -4,7 +4,6 @@ public class Users {
     private String nombre, apellido, username, password;
 
     public Users(){
-
     }
 
 
