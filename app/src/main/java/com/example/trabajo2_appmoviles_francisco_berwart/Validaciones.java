@@ -13,9 +13,9 @@ public class Validaciones {
 
 
     // Metodo para validar el componente de la password.
-    public boolean checkPassword(TextInputEditText param){
+    public boolean checkPassword(TextInputEditText param) {
         String strPar = param.getText().toString();
-        if(!strPar.isEmpty()){
+        if (!strPar.isEmpty()) {
             return true;
         } else {
             param.setError("Campo Vacio!");
@@ -24,12 +24,11 @@ public class Validaciones {
 
     }
 
-
     // Metodo para validar que Componente no este vacio.
-    public boolean checkEmail(TextInputEditText param){
+    public boolean checkEmail(TextInputEditText param) {
         String strPar = param.getText().toString();
-        if(!strPar.isEmpty()){
-            if(validarEmail(strPar)){
+        if (!strPar.isEmpty()) {
+            if (validarEmail(strPar)) {
                 return true;
             } else {
                 param.setError("Username debe ser Email!");
@@ -40,12 +39,21 @@ public class Validaciones {
             return false;
         }
     }
-
-    public static boolean validarEmail(String email){
+    public static boolean validarEmail(String email) {
         Pattern pat = Pattern.compile("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
         Matcher match = pat.matcher(email);
         return match.find();
     }// Fin del Metodo
+
+    public static boolean validComponent(TextInputEditText param){
+        String strPar = param.getText().toString();
+        if(!strPar.isEmpty()){
+            return true;
+        } else {
+            param.setError("Campo Vacio!");
+            return false;
+        }
+    }
 
 
 }

@@ -13,6 +13,8 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.trabajo2_appmoviles_francisco_berwart.Validaciones;
+
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
@@ -20,6 +22,7 @@ import java.util.ArrayList;
 
 public class ProductoActivity extends AppCompatActivity {
 
+    private Validaciones validaciones = new Validaciones();
     private String idProd, nombreProd, tipoProducto, estadoProducto;
     private TextView tvUserName, tvNombres;
     private TextInputEditText edIDProd, edNomProd;
@@ -45,16 +48,21 @@ public class ProductoActivity extends AppCompatActivity {
     // Metodo para las funciones/metodos de los distintos botones.
     private void clickButtons(View btn) {
         if (btn.getId() == R.id.btnAddProducto) {
-            Toast.makeText(this, "Se agregara un Producto!", Toast.LENGTH_LONG).show();
-            // Convierto a Strings los valores de los editText.
-            idProd = edIDProd.getText().toString();
-            nombreProd = edNomProd.getText().toString();
-            tipoProducto = "tipo 1";
-            estadoProducto = "Disponible";
-            productos.add(new Producto(idProd,nombreProd,tipoProducto,estadoProducto));
-            // Enviar los datos => Listado de productos al LOG.
-            // Quizas crear un bucle for para mostar los items del arraylist productos.
-            Log.d("TAG_", "Productos: " + productos.toString());
+            // Validar que los Componentes idProducto y NombreProducto se hayan ingrsado.
+            validaciones.validComponent(edIDProd);
+            validaciones.validComponent(edNomProd);
+            if (validaciones.validComponent(edIDProd) && validaciones.validComponent(edNomProd)) {
+                Toast.makeText(this, "Se agregara un Producto!", Toast.LENGTH_LONG).show();
+                // Convierto a Strings los valores de los editText.
+                idProd = edIDProd.getText().toString();
+                nombreProd = edNomProd.getText().toString();
+                tipoProducto = "tipo 1";
+                estadoProducto = "Disponible";
+                productos.add(new Producto(idProd, nombreProd, tipoProducto, estadoProducto));
+                // Enviar los datos => Listado de productos al LOG.
+                // Quizas crear un bucle for para mostar los items del arraylist productos.
+                Log.d("TAG_", "Productos: " + productos.toString());
+            }
 
 
         }
@@ -130,9 +138,10 @@ public class ProductoActivity extends AppCompatActivity {
 
 
     // Metodo para limpiar los componentes.
-    private void cleanComponents(){
+    private void cleanComponents() {
 
     }
+
 
     // Metodo para cargar los arrays de Estados y Tipos
     private void chargeArrays() {
