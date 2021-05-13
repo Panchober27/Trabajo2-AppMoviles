@@ -52,6 +52,10 @@ public class ProductoActivity extends AppCompatActivity {
         if (btn.getId() == R.id.btnAddProducto) {
             // Vaciar el LOG_D para mandar la lista actualizada. ??????
             // Validar que los Componentes idProducto y NombreProducto se hayan ingrsado.
+
+            // Tambien validar que el AutoCompleteTextView no este vacio!!!!
+            // Despues generar un titulo y validacion más toda la logica para un spinner adecuado!.
+
             validaciones.validComponent(edIDProd);
             validaciones.validComponent(edNomProd);
             if (validaciones.validComponent(edIDProd) && validaciones.validComponent(edNomProd)) {
@@ -88,10 +92,6 @@ public class ProductoActivity extends AppCompatActivity {
         tvNombres = findViewById(R.id.tvNombres);
         btnAddProd = findViewById(R.id.btnAddProducto);
         btnCancelProd = findViewById(R.id.btnCancelarProducto);
-        //chargeProdsList();
-        //adapter = new ArrayAdapter(this, android.R.layout.simple_expandable_list_item_1, productos);
-        //spinProds.setAdapter(adapter);
-        //autoProds.setAdapter(adapter);
         /**
          * En cuanto a los adapter, creo que tendre que hacer mas de 1, para pasar distintos arrays a los
          */
