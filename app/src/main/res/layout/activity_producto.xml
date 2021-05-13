@@ -6,5 +6,87 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".Producto">
-    
+
+    <!--
+        LY de titulo e imagen.
+    -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Mantenedor de Productos"
+            android:textAlignment="center"
+            android:textSize="25dp"></TextView>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginVertical="10dp"
+            android:text="Nombres: "
+            android:textAlignment="textStart"
+            android:textSize="18dp">
+
+        </TextView>
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:text="username: "
+            android:textAlignment="textStart"
+            android:textSize="18dp">
+
+        </TextView>
+
+
+    </LinearLayout>
+
+
+    <Spinner
+        android:id="@+id/spinProds"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp" />
+
+    <AutoCompleteTextView
+        android:id="@+id/autoProds"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="AutoCompleteTextView" />
+
+
+    <!--
+        LY de futuros botones.
+    -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="55dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="10dp"
+            android:layout_weight="1"
+            android:text="btn 1"></Button>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="10dp"
+            android:layout_weight="1"
+            android:text="btn 2"></Button>
+
+
+    </LinearLayout>
+
+
 </LinearLayout>
