@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Producto">
+    tools:context=".ProductoActivity">
 
     <!--
         LY de titulo e imagen.
@@ -51,18 +51,19 @@
     </LinearLayout>
 
 
+    <AutoCompleteTextView
+        android:id="@+id/autoProds"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:hint="Buscar Producto" />
+
+
     <Spinner
         android:id="@+id/spinProds"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp" />
-
-    <AutoCompleteTextView
-        android:id="@+id/autoProds"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Buscar Producto" />
-
 
     <!--
         LY de futuros botones.
@@ -78,14 +79,14 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="10dp"
             android:layout_weight="1"
-            android:text="btn 1"></Button>
+            android:text="Aceptar"></Button>
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="10dp"
             android:layout_weight="1"
-            android:text="btn 2"></Button>
+            android:text="Cancelar"></Button>
 
 
     </LinearLayout>
