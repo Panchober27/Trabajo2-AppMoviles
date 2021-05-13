@@ -5,10 +5,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.AutoCompleteTextView;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class Producto extends AppCompatActivity {
 
+    private TextView tvUserName, tvNombres;
     private Spinner spinProds;
     private AutoCompleteTextView autoProds;
 
@@ -18,6 +20,7 @@ public class Producto extends AppCompatActivity {
         setContentView(R.layout.activity_producto);
         // Inicializaciones
         inits();
+        chargeBundles();
         Toast.makeText(this, "Ahora viene agregar solo datos de prueba :=)", Toast.LENGTH_LONG).show();
     }
 
@@ -29,8 +32,8 @@ public class Producto extends AppCompatActivity {
 
         spinProds = findViewById(R.id.spinProds);
         autoProds = findViewById(R.id.autoProds);
-
-
+        tvUserName = findViewById(R.id.tvUserName);
+        tvNombres = findViewById(R.id.tvNombres);
     }
 
     /**
@@ -44,7 +47,8 @@ public class Producto extends AppCompatActivity {
             String userName = String.valueOf(b.get("keyUserName"));
             String userData = String.valueOf(b.get("keyData"));
 
-
+            tvNombres.setText(tvNombres.getText() + " " + userData);
+            tvUserName.setText(tvUserName.getText() + " " + userName);
 
         }
     }
