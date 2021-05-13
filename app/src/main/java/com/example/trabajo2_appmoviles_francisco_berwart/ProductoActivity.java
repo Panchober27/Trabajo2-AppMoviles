@@ -52,6 +52,7 @@ public class ProductoActivity extends AppCompatActivity {
             validaciones.validComponent(edIDProd);
             validaciones.validComponent(edNomProd);
             if (validaciones.validComponent(edIDProd) && validaciones.validComponent(edNomProd)) {
+                cleanComponents();
                 Toast.makeText(this, "Se agregara un Producto!", Toast.LENGTH_LONG).show();
                 // Convierto a Strings los valores de los editText.
                 idProd = edIDProd.getText().toString();
@@ -76,9 +77,6 @@ public class ProductoActivity extends AppCompatActivity {
     private void inits() {
         // Colocar codigo de imagen de actionBar.
         // Seria choro hacer esto desde Validaciones :)
-
-        //edIDProd, edNomProd
-
         edIDProd = findViewById(R.id.edIDtProducto);
         edNomProd = findViewById(R.id.edNombreProducto);
         spinProds = findViewById(R.id.spinProds);
@@ -139,7 +137,8 @@ public class ProductoActivity extends AppCompatActivity {
 
     // Metodo para limpiar los componentes.
     private void cleanComponents() {
-
+        edIDProd.setText("");
+        edNomProd.setText("");
     }
 
 
