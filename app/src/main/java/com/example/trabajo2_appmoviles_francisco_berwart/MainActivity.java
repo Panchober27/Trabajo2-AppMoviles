@@ -7,12 +7,15 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.example.trabajo2_appmoviles_francisco_berwart.Validaciones;
+
 import com.google.android.material.textfield.TextInputEditText;
 
 public class MainActivity extends AppCompatActivity {
 
     private TextInputEditText user, password;
     private Button btnOk, btnCancel;
+    Validaciones validaciones = new Validaciones();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,16 +27,19 @@ public class MainActivity extends AppCompatActivity {
         events();
     }
 
-    private void clickButtons(View btn){
-        if(btn.getId() == R.id.btnOk){
-            Toast.makeText(this,"Ahora Validaciones",Toast.LENGTH_LONG).show();
+    private void clickButtons(View btn) {
+        if (btn.getId() == R.id.btnOk) {
+            validaciones.checkEmail(user);
+            validaciones.checkPassword(password);
+            if (validaciones.checkEmail(user) && validaciones.checkPassword(password)) {
+                Toast.makeText(this, "Todo Correcto.", Toast.LENGTH_LONG).show();
+            }
         }
-
-        if(btn.getId() == R.id.btnCanel){
+        // Boton de Cancelar
+        if (btn.getId() == R.id.btnCanel) {
             finish();
         }
     }
-
 
 
     private void inits() {

@@ -1,3 +1,10 @@
 <resources>
-    <string name="app_name">Trabajo2_AppMoviles_Francisco_Berwart</string>
+    <string name="app_name">Trabajo 2 Francisco Berwart</string>
+
+    <string name="btnOk">aceptar</string>
+    <string name="btnCancel">aceptar</string>
+    <string name="username_hint">Nombre Usuario</string>
+    <string name="password_hint">Contraseña</string>
+
+
 </resources>

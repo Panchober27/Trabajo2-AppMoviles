@@ -23,7 +23,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20dp"
-                android:hint="Username" />
+                android:hint="@string/username_hint" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
@@ -34,7 +34,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textPassword"
-                    android:hint="Password" />
+                    android:hint="@string/password_hint" />
             </com.google.android.material.textfield.TextInputLayout>
         </com.google.android.material.textfield.TextInputLayout>
     </LinearLayout>
@@ -50,7 +50,8 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="10dp"
             android:layout_weight="1"
-            android:text="Button" />
+            android:text="Button"
+            android:backgroundTint="#4CAF50" />
 
         <Button
             android:id="@+id/btnCanel"
@@ -58,7 +59,8 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="10dp"
             android:layout_weight="1"
-            android:text="Button" />
+            android:text="Button"
+            android:backgroundTint="#F44336" />
 
     </LinearLayout>
 
