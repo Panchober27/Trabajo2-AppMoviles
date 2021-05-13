@@ -44,6 +44,8 @@ public class MainActivity extends AppCompatActivity {
 
 
     private void inits() {
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setIcon(R.mipmap.ic_launcher);
         user = findViewById(R.id.edUsername);
         password = findViewById(R.id.edPassword);
         btnOk = findViewById(R.id.btnOk);

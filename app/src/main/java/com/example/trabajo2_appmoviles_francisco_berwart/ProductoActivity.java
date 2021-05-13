@@ -76,7 +76,8 @@ public class ProductoActivity extends AppCompatActivity {
     // Metodo de Inicializaciones
     private void inits() {
         // Colocar codigo de imagen de actionBar.
-        // Seria choro hacer esto desde Validaciones :)
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setIcon(R.mipmap.ic_launcher);
         edIDProd = findViewById(R.id.edIDtProducto);
         edNomProd = findViewById(R.id.edNombreProducto);
         spinProds = findViewById(R.id.spinProds);
