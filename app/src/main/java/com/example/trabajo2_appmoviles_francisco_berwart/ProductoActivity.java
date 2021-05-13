@@ -3,25 +3,33 @@ package com.example.trabajo2_appmoviles_francisco_berwart;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
+import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
 
 import java.util.ArrayList;
 
 public class ProductoActivity extends AppCompatActivity {
 
+    private String idProd, nombreProd, tipoProducto, estadoProducto;
     private TextView tvUserName, tvNombres;
+    private TextInputEditText edIDProd, edNomProd;
     private Spinner spinProds;
     private AutoCompleteTextView autoProds;
+    private Button btnAddProd, btnCancelProd;
     private String[] tipoProd = new String[10];
     private String[] estadoProd = new String[4];
     private ArrayList<Producto> productos = new ArrayList<>();
-    private ArrayAdapter adapter, adapterTipos, adapterEstados;
+    private ArrayAdapter adapterTipos, adapterEstados;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +38,27 @@ public class ProductoActivity extends AppCompatActivity {
         // Inicializaciones
         inits();
         chargeBundles();
+        events();
         Toast.makeText(this, "Ahora viene agregar solo datos de prueba :=)", Toast.LENGTH_LONG).show();
+    }
+
+    // Metodo para las funciones/metodos de los distintos botones.
+    private void clickButtons(View btn) {
+        if (btn.getId() == R.id.btnAddProducto) {
+            Toast.makeText(this, "Se agregara un Producto!", Toast.LENGTH_LONG).show();
+            // Convierto a Strings los valores de los editText.
+            idProd = edIDProd.getText().toString();
+            nombreProd = edNomProd.getText().toString();
+            tipoProducto = "tipo 1";
+            estadoProducto = "Disponible";
+            productos.add(new Producto(idProd,nombreProd,tipoProducto,estadoProducto));
+            // Enviar los datos => Listado de productos al LOG.
+
+
+        }
+        if (btn.getId() == R.id.btnCancelarProducto) {
+            Toast.makeText(this, "Se Cancelo la carga de un Producto!", Toast.LENGTH_LONG).show();
+        }
     }
 
 
@@ -39,10 +67,16 @@ public class ProductoActivity extends AppCompatActivity {
         // Colocar codigo de imagen de actionBar.
         // Seria choro hacer esto desde Validaciones :)
 
+        //edIDProd, edNomProd
+
+        edIDProd = findViewById(R.id.edIDtProducto);
+        edNomProd = findViewById(R.id.edNombreProducto);
         spinProds = findViewById(R.id.spinProds);
         autoProds = findViewById(R.id.autoProds);
         tvUserName = findViewById(R.id.tvUserName);
         tvNombres = findViewById(R.id.tvNombres);
+        btnAddProd = findViewById(R.id.btnAddProducto);
+        btnCancelProd = findViewById(R.id.btnCancelarProducto);
         //chargeProdsList();
         //adapter = new ArrayAdapter(this, android.R.layout.simple_expandable_list_item_1, productos);
         //spinProds.setAdapter(adapter);
@@ -56,6 +90,23 @@ public class ProductoActivity extends AppCompatActivity {
         spinProds.setAdapter(adapterEstados);
         autoProds.setAdapter(adapterTipos);
 
+    }
+
+
+    // Metodo para asiganr los listners a los botones.
+    private void events() {
+        btnAddProd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                clickButtons(v);
+            }
+        });
+        btnCancelProd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                clickButtons(v);
+            }
+        });
     }
 
     /**
@@ -76,19 +127,15 @@ public class ProductoActivity extends AppCompatActivity {
     }
 
 
-    // Metodo para cargar la lista de productos.
-    private void chargeProdsList() {
-        productos.add(new Producto("1A", "MARK1", "War Machine", "Disponible"));
-        productos.add(new Producto("2A", "MARK12", "War Machine", "Disponible"));
-        productos.add(new Producto("3A", "MARK15", "War Machine", "No Vigente"));
-        productos.add(new Producto("4A", "MARK22", "War Machine", "En Transito"));
-        // en el futuro se ingresaran mas demos de producto.
+    // Metodo para limpiar los componentes.
+    private void cleanComponents(){
+
     }
 
     // Metodo para cargar los arrays de Estados y Tipos
     private void chargeArrays() {
         estadoProd = new String[]{"Disponible", "Control de Calida", "No Vigente", "En Transito"};
-        tipoProd = new String[]{"tipo 1","tipo 2","tipo 3","tipo 4","tipo 5","tipo 6","tipo 7","tipo 8","tipo 9","tipo 10"};
+        tipoProd = new String[]{"tipo 1", "tipo 2", "tipo 3", "tipo 4", "tipo 5", "tipo 6", "tipo 7", "tipo 8", "tipo 9", "tipo 10"};
     }
 
 
