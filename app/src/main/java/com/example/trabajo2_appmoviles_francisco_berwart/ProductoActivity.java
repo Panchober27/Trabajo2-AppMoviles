@@ -41,6 +41,8 @@ public class ProductoActivity extends AppCompatActivity {
         // Inicializaciones
         inits();
         chargeBundles();
+        // Metodo con los listeners
+        //adapterComponentsListeners();
         events();
         Toast.makeText(this, "Ahora viene agregar solo datos de prueba :=)", Toast.LENGTH_LONG).show();
     }
@@ -48,24 +50,14 @@ public class ProductoActivity extends AppCompatActivity {
     // Metodo para las funciones/metodos de los distintos botones.
     private void clickButtons(View btn) {
         if (btn.getId() == R.id.btnAddProducto) {
-
-            // Vaciar el LOG_D para mandar la lista actualizada.
-
-
+            // Vaciar el LOG_D para mandar la lista actualizada. ??????
             // Validar que los Componentes idProducto y NombreProducto se hayan ingrsado.
             validaciones.validComponent(edIDProd);
             validaciones.validComponent(edNomProd);
             if (validaciones.validComponent(edIDProd) && validaciones.validComponent(edNomProd)) {
-                // Toast.makeText(this, "Se agregara un Producto!", Toast.LENGTH_LONG).show();
-                // Convierto a Strings los valores de los editText.
                 idProd = edIDProd.getText().toString();
                 nombreProd = edNomProd.getText().toString();
-                //Toast.makeText(this, "id: " + idProd + " nombre: " + nombreProd, Toast.LENGTH_LONG).show();
-                tipoProducto = "tipo 1";
-                estadoProducto = "Disponible";
                 productos.add(new Producto(idProd, nombreProd, tipoProducto, estadoProducto));
-                // Enviar los datos => Listado de productos al LOG.
-                // Quizas crear un bucle for para mostar los items del arraylist productos.
                 for (int i = 0; i < productos.size(); i++) {
                     Log.d("TAG_", "..  \n" +
                             "Producto " + (i + 1)
@@ -76,11 +68,9 @@ public class ProductoActivity extends AppCompatActivity {
                 }
                 cleanComponents();
             }
-
-
         }
         if (btn.getId() == R.id.btnCancelarProducto) {
-            Toast.makeText(this, "Se Cancelo la carga de un Producto!", Toast.LENGTH_LONG).show();
+            finish();
         }
     }
 
@@ -110,6 +100,9 @@ public class ProductoActivity extends AppCompatActivity {
         adapterTipos = new ArrayAdapter(this, android.R.layout.simple_list_item_1, tipoProd);
         spinProds.setAdapter(adapterEstados);
         autoProds.setAdapter(adapterTipos);
+        // Le asigno desde que caracter va a buscar las coincidencias.
+        autoProds.setThreshold(1);
+        componentsListeners();
 
     }
 
@@ -152,6 +145,7 @@ public class ProductoActivity extends AppCompatActivity {
     private void cleanComponents() {
         edIDProd.setText("");
         edNomProd.setText("");
+        autoProds.setText("");
     }
 
 
@@ -159,31 +153,45 @@ public class ProductoActivity extends AppCompatActivity {
     private void chargeArrays() {
         estadoProd = new String[]{"Disponible", "Control de Calida", "No Vigente", "En Transito"};
         tipoProd = new String[]{
-                "tipo 1",
-                "tipo 2",
-                "tipo 3",
-                "tipo 4",
-                "tipo 5",
-                "tipo 6",
-                "tipo 7",
-                "tipo 8",
-                "tipo 9",
-                "tipo 10"
+                "Alimentos",
+                "Automoviles",
+                "Servicios",
+                "Containers",
+                "Compras",
+                "Consumo",
+                "Coleccionables",
+                "Industrial",
+                "Ingenería",
+                "Suscripcipón",
         };
     }
 
 
-    // Metodo para aplicar el Adapter a el spinner y al autoCompleteTextView
-    // OJO que con el autoCompleteTextView se debe realizar una busqueda en base a la 3era coincidencia!
-    // revisar eso!!!...
-    private void adapterComponentsListeners() {
-        spinProds.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+    // Metodos para los listeners del Spinner y el AutoCompleteTextView
+    private void componentsListeners() {
+        spinProds.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                Object object = parent.getItemAtPosition(position);
+                String estP = object.toString();
+                estadoProducto = estP;
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
 
             }
         });
+        // Obtener el Producto.
+        autoProds.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                // Castear a Array de productos.
+                Object itemSel = parent.getItemAtPosition(position);
+                String tp = itemSel.toString();  // tp => tipo de producto con
+                tipoProducto = tp;
+            }
+        });
     }
-
 
 }

@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
                 i.putExtra("keyUserName", user.getText().toString());
                 i.putExtra("keyData", "esto es un futuro dato extra del usuario, como nombres y apellidos.");
                 startActivity(i);
+                cleanComponents();
             }
         }
         // Boton de Cancelar
@@ -50,6 +51,12 @@ public class MainActivity extends AppCompatActivity {
         password = findViewById(R.id.edPassword);
         btnOk = findViewById(R.id.btnOk);
         btnCancel = findViewById(R.id.btnCanel);
+    }
+
+    // Metodo para vaciar los campos del login.
+    private void cleanComponents() {
+        user.setText("");
+        password.setText("");
     }
 
 
