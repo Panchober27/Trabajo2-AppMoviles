@@ -48,6 +48,10 @@ public class ProductoActivity extends AppCompatActivity {
     // Metodo para las funciones/metodos de los distintos botones.
     private void clickButtons(View btn) {
         if (btn.getId() == R.id.btnAddProducto) {
+
+            // Vaciar el LOG_D para mandar la lista actualizada.
+
+
             // Validar que los Componentes idProducto y NombreProducto se hayan ingrsado.
             validaciones.validComponent(edIDProd);
             validaciones.validComponent(edNomProd);
@@ -62,8 +66,14 @@ public class ProductoActivity extends AppCompatActivity {
                 productos.add(new Producto(idProd, nombreProd, tipoProducto, estadoProducto));
                 // Enviar los datos => Listado de productos al LOG.
                 // Quizas crear un bucle for para mostar los items del arraylist productos.
-                Log.d("TAG_", "Productos: " + productos.toString());
-                Toast.makeText(this, "Listado Productos: " + productos.toString(), Toast.LENGTH_LONG).show();
+                for (int i = 0; i < productos.size(); i++) {
+                    Log.d("TAG_", "..  \n" +
+                            "Producto " + (i + 1)
+                            + ": \n"
+                            + productos.get(i).toString());
+                    Log.d("TAG_", "");
+                    Log.d("TAG_", "");
+                }
                 cleanComponents();
             }
 
@@ -148,7 +158,18 @@ public class ProductoActivity extends AppCompatActivity {
     // Metodo para cargar los arrays de Estados y Tipos
     private void chargeArrays() {
         estadoProd = new String[]{"Disponible", "Control de Calida", "No Vigente", "En Transito"};
-        tipoProd = new String[]{"tipo 1", "tipo 2", "tipo 3", "tipo 4", "tipo 5", "tipo 6", "tipo 7", "tipo 8", "tipo 9", "tipo 10"};
+        tipoProd = new String[]{
+                "tipo 1",
+                "tipo 2",
+                "tipo 3",
+                "tipo 4",
+                "tipo 5",
+                "tipo 6",
+                "tipo 7",
+                "tipo 8",
+                "tipo 9",
+                "tipo 10"
+        };
     }
 
 

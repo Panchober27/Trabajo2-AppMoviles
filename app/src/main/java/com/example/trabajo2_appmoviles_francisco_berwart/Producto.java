@@ -45,17 +45,32 @@ public class Producto {
 
     /**
      * Metodo toString.
-     * modificar para estetica de las respuestas
+     * Opción 1
+     */
+    /**
+     @Override public String toString() {
+     return "Producto{" +
+     "idProd='" + idProd + '\'' +
+     ", nombreProd='" + nombreProd + '\'' +
+     ", tipoProd='" + tipoProd + '\'' +
+     ", estadoProd='" + estadoProd + '\'' +
+     '}';
+     }
+     **/
+
+    /**
+     * Metodo toString.
+     * Opción 2
      */
     @Override
     public String toString() {
-        return "Producto{" +
-                "idProd='" + idProd + '\'' +
-                ", nombreProd='" + nombreProd + '\'' +
-                ", tipoProd='" + tipoProd + '\'' +
-                ", estadoProd='" + estadoProd + '\'' +
-                '}';
+
+        return "id: " + idProd + "\n" +
+                "Nombre Producto: " + nombreProd + "\n" +
+                "Tipo Producto: " + tipoProd + "\n" +
+                "Estado Producto: " + estadoProd + ".";
     }
+
 
     /**
      * Metodos Setter y Getter.
