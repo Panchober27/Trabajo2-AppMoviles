@@ -53,6 +53,8 @@ public class ProductoActivity extends AppCompatActivity {
             estadoProducto = "Disponible";
             productos.add(new Producto(idProd,nombreProd,tipoProducto,estadoProducto));
             // Enviar los datos => Listado de productos al LOG.
+            // Quizas crear un bucle for para mostar los items del arraylist productos.
+            Log.d("TAG_", "Productos: " + productos.toString());
 
 
         }

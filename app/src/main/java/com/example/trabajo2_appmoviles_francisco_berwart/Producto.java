@@ -45,6 +45,7 @@ public class Producto {
 
     /**
      * Metodo toString.
+     * modificar para estetica de las respuestas
      */
     @Override
     public String toString() {
