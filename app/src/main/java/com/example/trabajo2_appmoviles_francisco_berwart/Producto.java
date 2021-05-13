@@ -30,10 +30,31 @@ public class Producto {
     public Producto() {
         this.idProd = "1A";
         this.nombreProd = "MARK1";
-        this.tipoProd = "";
-        this.estadoProd = "";
+        this.tipoProd = "Heavy weight body armor";
+        this.estadoProd = "Disponible";
     }
 
+    // Constructor con parametros.
+    public Producto(String id, String nom, String tip, String est) {
+        this.idProd = id;
+        this.nombreProd = nom;
+        this.tipoProd = tip;
+        this.estadoProd = est;
+    }
+
+
+    /**
+     * Metodo toString.
+     */
+    @Override
+    public String toString() {
+        return "Producto{" +
+                "idProd='" + idProd + '\'' +
+                ", nombreProd='" + nombreProd + '\'' +
+                ", tipoProd='" + tipoProd + '\'' +
+                ", estadoProd='" + estadoProd + '\'' +
+                '}';
+    }
 
     /**
      * Metodos Setter y Getter.
