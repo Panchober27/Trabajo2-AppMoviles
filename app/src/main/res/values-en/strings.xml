@@ -8,11 +8,15 @@
     <string name="btnSalir">exit</string>
     <string name="username_hint">Username</string>
     <string name="password_hint">Password</string>
-    
+
     <!-- ProductoActivity -->
     <string name="nombres">Name:</string>
     <string name="username">User:</string>
     <string name="idProducto">Product Id</string>
     <string name="nombreProducto">Product Name</string>
+
+    <!-- Errores de los datos. -->
+    <string name="errorCampoVacio">Empty Field!</string>
+    <string name="errorFormat">Username must be an email!</string>
 
 </resources>

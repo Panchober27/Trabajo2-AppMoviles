@@ -15,7 +15,9 @@
     <string name="nombreProducto">Nombre Producto</string>
 
 
-
+    <!-- Errores de los datos. -->
+    <string name="errorCampoVacio">Campo Vacio!</string>
+    <string name="errorFormat">Nombre de usuario debe ser email!</string>
 
 
 
