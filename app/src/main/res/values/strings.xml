@@ -2,9 +2,22 @@
     <string name="app_name">Trabajo 2 Francisco Berwart</string>
 
     <string name="btnOk">aceptar</string>
-    <string name="btnCancel">aceptar</string>
+    <string name="btnCancel">cancelar</string>
+    <string name="btnSalir">salir</string>
     <string name="username_hint">Nombre Usuario</string>
     <string name="password_hint">Contraseña</string>
+
+
+    <!-- ProductoActivity -->
+    <string name="nombres">Nombres:</string>
+    <string name="username">Usuario:</string>
+    <string name="idProducto">Id Producto</string>
+    <string name="nombreProducto">Nombre Producto</string>
+
+
+
+
+
 
 
 </resources>

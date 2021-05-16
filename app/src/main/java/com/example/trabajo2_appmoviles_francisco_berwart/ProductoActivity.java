@@ -133,10 +133,8 @@ public class ProductoActivity extends AppCompatActivity {
         if (b != null) {
             String userName = String.valueOf(b.get("keyUserName"));
             String userData = String.valueOf(b.get("keyData"));
-
             tvNombres.setText(tvNombres.getText() + " " + userData);
             tvUserName.setText(tvUserName.getText() + " " + userName);
-
         }
     }
 
