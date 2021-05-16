@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Task 2 Francisco Berwart</string>
+
+    <string name="btnOk">accept</string>
+    <string name="btnCancel">cancel</string>
+    <string name="btnSalir">exit</string>
+    <string name="username_hint">Username</string>
+    <string name="password_hint">Password</string>
+    
+    <!-- ProductoActivity -->
+    <string name="nombres">Name:</string>
+    <string name="username">User:</string>
+    <string name="idProducto">Product Id</string>
+    <string name="nombreProducto">Product Name</string>
+
+</resources>
