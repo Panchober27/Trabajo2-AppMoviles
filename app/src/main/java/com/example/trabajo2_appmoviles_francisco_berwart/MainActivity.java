@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
             if (validaciones.checkEmail(user) && validaciones.checkPassword(password)) {
                 Intent i = new Intent(this, ProductoActivity.class);
                 i.putExtra("keyUserName", user.getText().toString());
-                i.putExtra("keyData", "esto es un futuro dato extra del usuario, como nombres y apellidos.");
+                i.putExtra("keyData", "futuro dato extra del usuario, como nombres y apellidos.");
                 startActivity(i);
                 cleanComponents();
             }
