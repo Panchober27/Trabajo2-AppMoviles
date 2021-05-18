@@ -17,7 +17,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Ingreso Usuarios"
+            android:text="@string/title_login"
             android:textAlignment="center"
             android:textSize="30dp">
 
@@ -77,7 +77,7 @@
             android:layout_marginHorizontal="10dp"
             android:layout_weight="1"
             android:backgroundTint="#4CAF50"
-            android:text="Button" />
+            android:text="@string/btnOk" />
 
         <Button
             android:id="@+id/btnCanel"
@@ -86,7 +86,7 @@
             android:layout_marginHorizontal="10dp"
             android:layout_weight="1"
             android:backgroundTint="#F44336"
-            android:text="Button" />
+            android:text="@string/btnSalir" />
 
     </LinearLayout>
 

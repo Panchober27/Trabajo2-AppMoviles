@@ -3,6 +3,7 @@
 
     <string name="app_name">Task 2 Francisco Berwart</string>
 
+    <string name="title_login">Users Login</string>
     <string name="btnOk">accept</string>
     <string name="btnCancel">cancel</string>
     <string name="btnSalir">exit</string>
@@ -14,6 +15,8 @@
     <string name="username">User:</string>
     <string name="idProducto">Product Id</string>
     <string name="nombreProducto">Product Name</string>
+    <string name="tipo_producto">Enter product type</string>
+    <string name="estado_producto">Select product state</string>
 
     <!-- Errores de los datos. -->
     <string name="errorCampoVacio">Empty Field!</string>

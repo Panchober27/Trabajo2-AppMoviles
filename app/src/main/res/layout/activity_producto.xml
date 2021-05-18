@@ -68,7 +68,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20dp"
-                android:hint="Id Producto" />
+                android:hint="@string/idProducto" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
@@ -78,7 +78,7 @@
                     android:id="@+id/edNombreProducto"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Nombre Producto"
+                    android:hint="@string/nombreProducto"
                     android:inputType="text" />
             </com.google.android.material.textfield.TextInputLayout>
         </com.google.android.material.textfield.TextInputLayout>
@@ -90,14 +90,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="25dp"
-        android:hint="Ingrese Tipo Producto" />
+        android:hint="@string/tipo_producto" />
 
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
-        android:text="Seleccione Estado Producto"
+        android:text="@string/estado_producto"
         android:textColor="@color/black">
 
     </TextView>
@@ -123,7 +123,7 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="10dp"
             android:layout_weight="1"
-            android:text="Aceptar"
+            android:text="@string/btnOk"
             app:backgroundTint="#4CAF50"></Button>
 
         <Button
@@ -132,7 +132,7 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="10dp"
             android:layout_weight="1"
-            android:text="Cancelar"
+            android:text="@string/btnCancel"
             app:backgroundTint="#F44336"></Button>
 
 

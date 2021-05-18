@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Trabajo 2 Francisco Berwart</string>
 
+    <string name="title_login">Ingreso Usuarios</string>
     <string name="btnOk">aceptar</string>
     <string name="btnCancel">cancelar</string>
     <string name="btnSalir">salir</string>
@@ -13,6 +14,8 @@
     <string name="username">Usuario:</string>
     <string name="idProducto">Id Producto</string>
     <string name="nombreProducto">Nombre Producto</string>
+    <string name="tipo_producto">Ingrese tipo producto</string>
+    <string name="estado_producto">Seleccione estado del producto</string>
 
 
     <!-- Errores de los datos. -->
