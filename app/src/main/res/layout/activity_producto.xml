@@ -124,7 +124,8 @@
             android:layout_marginHorizontal="10dp"
             android:layout_weight="1"
             android:text="@string/btnOk"
-            app:backgroundTint="#4CAF50"></Button>
+            app:backgroundTint="#4CAF50"
+            app:icon="@android:drawable/ic_input_add"></Button>
 
         <Button
             android:id="@+id/btnCancelarProducto"
@@ -133,7 +134,8 @@
             android:layout_marginHorizontal="10dp"
             android:layout_weight="1"
             android:text="@string/btnCancel"
-            app:backgroundTint="#F44336"></Button>
+            app:backgroundTint="#F44336"
+            app:icon="@android:drawable/ic_delete"></Button>
 
 
     </LinearLayout>

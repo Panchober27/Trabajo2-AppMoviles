@@ -77,7 +77,8 @@
             android:layout_marginHorizontal="10dp"
             android:layout_weight="1"
             android:backgroundTint="#4CAF50"
-            android:text="@string/btnOk" />
+            android:text="@string/btnOk"
+            app:icon="@android:drawable/btn_star_big_on" />
 
         <Button
             android:id="@+id/btnCanel"
@@ -86,7 +87,8 @@
             android:layout_marginHorizontal="10dp"
             android:layout_weight="1"
             android:backgroundTint="#F44336"
-            android:text="@string/btnSalir" />
+            android:text="@string/btnSalir"
+            app:icon="@android:drawable/ic_delete" />
 
     </LinearLayout>
 
