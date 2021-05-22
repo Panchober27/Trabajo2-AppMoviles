@@ -3,6 +3,8 @@ package com.example.trabajo2_appmoviles_francisco_berwart;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -59,18 +61,14 @@ public class ProductoActivity extends AppCompatActivity {
             validaciones.validComponent(edIDProd);
             validaciones.validComponent(edNomProd);
             if (validaciones.validComponent(edIDProd) && validaciones.validComponent(edNomProd)) {
-                idProd = edIDProd.getText().toString();
-                nombreProd = edNomProd.getText().toString();
-                productos.add(new Producto(idProd, nombreProd, tipoProducto, estadoProducto));
-                for (int i = 0; i < productos.size(); i++) {
-                    Log.d("TAG_", "..  \n" +
-                            "Producto " + (i + 1)
-                            + ": \n"
-                            + productos.get(i).toString());
-                    Log.d("TAG_", "");
-                    Log.d("TAG_", "");
+                if (findProductById(edIDProd.getText().toString())) {
+                    // Update
+                    updateProduct(edIDProd.getText().toString());
+                    cleanComponents();
+                    Toast.makeText(ProductoActivity.this, "SE MODIFICA PRODUCTO", Toast.LENGTH_LONG).show();
+                } else {
+                    addProduct();
                 }
-                cleanComponents();
             }
         }
         if (btn.getId() == R.id.btnCancelarProducto) {
@@ -149,7 +147,7 @@ public class ProductoActivity extends AppCompatActivity {
 
     // Metodo para cargar los arrays de Estados y Tipos
     private void chargeArrays() {
-        estadoProd = new String[]{"Disponible", "Control de Calida", "No Vigente", "En Transito"};
+        estadoProd = new String[]{"Disponible", "Control de Calidad", "No Vigente", "En Transito"};
         tipoProd = new String[]{
                 "Alimentos",
                 "Automoviles",
@@ -190,6 +188,81 @@ public class ProductoActivity extends AppCompatActivity {
                 tipoProducto = tp;
             }
         });
+        edIDProd.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                findProductById(s.toString());
+            }
+        });
     }
+
+
+    private void updateProduct(String id) {
+        for (int i = 0; i < productos.size(); i++) {
+            if(id.equals(productos.get(i).getIdProd())){
+                productos.get(i).setNombreProd(edNomProd.getText().toString());
+                productos.get(i).setTipoProd(autoProds.getText().toString());
+                productos.get(i).setEstadoProd(estadoProducto);
+                Log.d("TAG_", "updateProduct: " + productos.get(i).toString());
+            }
+        }
+    }
+
+
+    private void addProduct() {
+        idProd = edIDProd.getText().toString();
+        nombreProd = edNomProd.getText().toString();
+        productos.add(new Producto(idProd, nombreProd, tipoProducto, estadoProducto));
+        for (int i = 0; i < productos.size(); i++) {
+            Log.d("TAG_", "..  \n" +
+                    "Producto " + (i + 1)
+                    + ": \n"
+                    + productos.get(i).toString());
+            Log.d("TAG_", "");
+            Log.d("TAG_", "");
+        }
+        cleanComponents();
+    }
+
+
+    private boolean findProductById(String param) {
+        boolean var = false;
+        if (productos.size() >= 1) {
+            for (int i = 0; i < productos.size(); i++) {
+                if (param.equals(productos.get(i).getIdProd())) { // SI EXISTE
+                    edNomProd.setText(productos.get(i).getNombreProd());
+                    autoProds.setText(productos.get(i).getTipoProd());
+                    int position = 0;
+                    String estado = productos.get(i).getEstadoProd();
+                    if (estado.equals("Disponible")) {
+                        position = 0;
+                    } else if (estado.equals("Control de Calidad")) {
+                        position = 1;
+                    } else if (estado.equals("No Vigente")) {
+                        position = 2;
+                    } else if (estado.equals("En Transito")) {
+                        position = 3;
+                    }
+                    spinProds.setSelection(position);
+                    var = true;
+                    // SPinner !!!!!!!!!!!
+                }
+            }
+        } else {
+            var = false;
+        }
+        return var;
+    }
+
 
 }
